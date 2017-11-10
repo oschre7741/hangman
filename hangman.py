@@ -1,5 +1,5 @@
 def get_puzzle():
-    pass
+    return "hangman"
 
 def get_solved(puzzle, guesses):
     solved = ""
@@ -13,15 +13,41 @@ def get_solved(puzzle, guesses):
     return solved
 
 def get_guess():
-    pass
+    letter = input("Guess a letter: ")
+    return letter
 
 def display_board(solved):
-    pass
+    return solved
 
 def show_result():
-    pass
+    print("you win!")
     
 def play():
-    pass
+    puzzle = get_puzzle()
+    guesses = ""
+    solved = get_solved(puzzle, guesses)
+
+    strikes = 0
+    limit = 6
+
+    print(solved)
+
+    while solved != puzzle:
+        letter = get_guess()
+
+        if letter not in puzzle:
+            pass
+
+        guesses += letter
+        solved = get_solved(puzzle, guesses)
+        display_board(solved)
+
+    show_result()
     
 play()
+           _      
+         _[_]_  
+          (")  
+      `--( : )--'
+        (  :  )
+      ""`-...-'"" 
