@@ -35,12 +35,19 @@ def get_solved(puzzle, guesses):
 
     return solved
 
-def get_guess():
+def get_guess(guesses):
     letter = input("Guess a letter: ")
-    return letter
+    if len(letter) > 1:
+        print("please guess only one letter.")
+    elif letter not in "abcdefghijklmnopqrstuvwxyz":
+        print("You must enter a letter.")
+    elif letter in guesses:
+        print("You have already entered that letter.")
+    else:
+        return letter
 
-def display_board(solved):
-    print(solved)
+def display_board(solved, guesses):
+    print(solved, guesses)
 
 def show_result(solved, puzzle):
     if solved == puzzle:
@@ -63,20 +70,21 @@ def play():
     puzzle = get_puzzle()
     guesses = ""
     solved = get_solved(puzzle, guesses)
-    display_board(solved)
+    display_board(solved, guesses)
 
+    letter = -1
     strikes = 0
     limit = 6
 
     while solved != puzzle:
-        letter = get_guess()
-        
+        letter = get_guess(guesses)
+        '''
         if letter not in puzzle and strikes < limit:
-            strikes += 1
-        
-        guesses += letter
+            pass
+        '''
+        guesses += str(letter)
         solved = get_solved(puzzle, guesses)
-        display_board(solved)
+        display_board(solved, guesses)
 
     show_result(solved, puzzle)
     
@@ -89,6 +97,7 @@ while playing:
     playing = play_again()
 
 show_end_screen()
+
 '''
            _      
          _[_]_  
