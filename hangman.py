@@ -35,25 +35,33 @@ def get_solved(puzzle, guesses):
 
     return solved
 
-def get_guess(guesses):
-    letter = input("Guess a letter: ")
+def get_name():
+    print("What is your name?")
+    name = input()
+    return name
+
+def get_guess(guesses, name):
+    letter = input("Guess a letter, " + str(name) + ": ")
+    
     if len(letter) > 1:
-        print("please guess only one letter.")
+        print("please guess only one letter " + str(name) + ".")
+    elif letter == '' or letter == ' ':
+          print("You need to enter a letter, " + str(name))
     elif letter not in "abcdefghijklmnopqrstuvwxyz":
-        print("You must enter a letter.")
+        print("You must enter a letter " + str(name) + ".")
     elif letter in guesses:
-        print("You have already entered that letter.")
+        print("You have already entered that letter " + str(name) + ".")
     else:
         return letter
 
 def display_board(solved, guesses):
-    print(solved, guesses)
+    print(solved, [guesses])
 
-def show_result(solved, puzzle):
+def show_result(solved, puzzle, name):
     if solved == puzzle:
-        print("You win!")
-    else:
-        print("sorry, you lost.")
+        print("You win, " + str(name) + "!")
+    elif strikes >= 6:
+        print("sorry " + str(name) + ", you ran out of tries.")
 
 def play_again():
     while True:
@@ -71,23 +79,78 @@ def play():
     guesses = ""
     solved = get_solved(puzzle, guesses)
     display_board(solved, guesses)
+    name = get_name()
 
-    letter = -1
-    strikes = 0
     limit = 6
-
+    strikes = 0
+    
     while solved != puzzle:
-        letter = get_guess(guesses)
-        '''
-        if letter not in puzzle and strikes < limit:
-            pass
-        '''
+        letter = get_guess(guesses, name)
+        
+        if str(letter) not in puzzle:
+            solved  = get_solved(puzzle, guesses)
+            strikes = strikes + 1
+        
         guesses += str(letter)
         solved = get_solved(puzzle, guesses)
         display_board(solved, guesses)
 
-    show_result(solved, puzzle)
-    
+    show_result(solved, puzzle, name)
+    if strikes == 1:
+        print("------------")
+        print("|         | ")        
+        print("|         O ")
+        print("|           ")
+        print("|           ")
+        print("|           ")
+        print("|           ")
+
+    if strikes == 2:
+        print("------------")
+        print("|         | ")        
+        print("|         O ")
+        print("|         | ")
+        print("|           ")
+        print("|           ")
+        print("|           ")
+
+    if strikes == 3:
+        print("------------")
+        print("|         | ")        
+        print("|         O ")
+        print("|        /| ")
+        print("|           ")
+        print("|           ")
+        print("|           ")
+
+
+    if strikes == 4:
+        print("------------")
+        print("|         | ")        
+        print("|         O ")
+        print("|        /|\ ")
+        print("|           ")
+        print("|           ")
+        print("|           ")
+
+    if strikes == 5:
+        print("------------")
+        print("|         | ")        
+        print("|         O ")
+        print("|        /|\ ")
+        print("|        /  ")
+        print("|           ")
+        print("|           ")
+
+    if strikes == 6:
+        print("------------")
+        print("|         | ")        
+        print("|         O ")
+        print("|        /|\ ")
+        print("|        / \ ")
+        print("|           ")
+        print("|           ")
+        
 show_start_screen()
 
 playing = True
