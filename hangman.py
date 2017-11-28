@@ -1,7 +1,6 @@
-#hangman, 11/9/17
+#hangman, 11/21/17
 
 #Olivia S
-
 import random
 
 def show_start_screen():
@@ -24,30 +23,17 @@ def show_end_screen():
     print("╚═╝     ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚═════╝    ╚═╝        ╚═════╝ ╚══════╝╚═╝  ╚═══╝  ╚═╝╚═╝  ╚═╝     ╚═╝ ╚═╝╚═╝     ╚═╝╚═════╝ ╚═╝     ╚═╝   ╚═╝  ")
                                                                                                                                                         
 def get_puzzle():
-    choice = None
+    words = ["xylophone", "marimba", "trumpet", "flute", "clarinet", "baritone", "snare", "bass", "tenors", "saxophone", "mellophone", "tuba"]
+    randnum = random.randint(0, len(words) - 1)
+    puzzle = words[randnum]
+    return puzzle
 
-while choice != "0":
-    print('''
-    --------------------
-    Welcome to Hangman
-    --------------------
-
-    Choose a category:
-
-    0 - Instruments
-    1 - Cities
-    2 - random words
-
-    ''')
-    choice = input("Enter you choice: ")
-
-    if choice == "0":
-        List = open("instruments.txt").readlines()
-    elif choice =="1":
-        List = open("cities.txt").readlines()
-    elif choice == "2":
-        List = open("random.txt").readlines()
-
+def get_strikes():
+    strikes = 0
+    limit = 6
+    strikesleft = limit - strikes
+    return strikesleft
+    
 def get_solved(puzzle, guesses):
     solved = ""
 
@@ -58,17 +44,7 @@ def get_solved(puzzle, guesses):
             solved += "-"
 
     return solved
-'''
-def get_language():
-    print("Would you like to play in English or Spanish?")
-    language = input()
-    return language
 
-    if language == English:
-        return English
-    elif language == Spanish:
-        return Spanish
-'''
 def get_name():
         print("What is your name?")
         name = input()
@@ -88,9 +64,9 @@ def get_guess(guesses, name):
         else:
             return letter
         
-def display_board(solved, guesses):
+def display_board(solved, guesses, strikesleft):
     print(solved, [guesses])
-    )
+    print("You have " + str(strikesleft) + " tries left.")
     
 def show_result(solved, puzzle, name, strikes):
         if solved == puzzle:
@@ -111,21 +87,24 @@ def play_again():
                 
 def play():
     puzzle = get_puzzle()
+    strikesleft = get_strikes()
     guesses = ""
     solved = get_solved(puzzle, guesses)
     name = get_name()
-    display_board(solved, guesses, strikes)
-    #language = get_language()
-    
+    display_board(solved, guesses, strikesleft)
 
     limit = 6
     strikes = 0
     
     while solved != puzzle:
         letter = get_guess(guesses, name)
-        
+
+        if (len(str(letter)) > 1) or (letter == '' or letter == ' ') or (letter not in "abcdefghijklmnopqrstuvwxyz") or (letter in guesses):
+            strikes != strikes + 1
+            
         if str(letter) not in puzzle:
-            strikes += 1 
+            strikesleft = limit - strikes
+            strikes += 1
             if strikes == 1:
                 print("  (     )   ")
                 print("  `-...-'   ")
@@ -159,13 +138,13 @@ def play():
                 print("`--(   )--' ")
                 print("  (     )   ")
                 print("  `-...-'   ")
-                
+           
         if strikes == limit:
             break
         
         guesses += str(letter)
         solved = get_solved(puzzle, guesses)
-        display_board(solved, guesses, strikes)
+        display_board(solved, guesses, strikesleft)
 
     show_result(solved, puzzle, name, strikes)
    
