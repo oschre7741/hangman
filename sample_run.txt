@@ -1,0 +1,105 @@
+Python 3.6.2 (v3.6.2:5fd33b5, Jul  8 2017, 04:14:34) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+================== RESTART: C:\Users\oschre7741\hangman.py ==================
+ ('-. .-.   ('-.         .-') _            _   .-')      ('-.         .-') _  
+( OO )  /  ( OO ).-.    ( OO ) )          ( '.( OO )_   ( OO ).-.    ( OO ) ) 
+,--. ,--.  / . --. /,--./ ,--,'  ,----.    ,--.   ,--.) / . --. /,--./ ,--,'  
+|  | |  |  | \-.  \ |   \ |  |\ '  .-./-') |   `.'   |  | \-.  \ |   \ |  |\  
+|   .|  |.-'-'  |  ||    \|  | )|  |_( O- )|         |.-'-'  |  ||    \|  | ) 
+|       | \| |_.'  ||  .     |/ |  | .--, \|  |'.'|  | \| |_.'  ||  .     |/  
+|  .-.  |  |  .-.  ||  |\    | (|  | '. (_/|  |   |  |  |  .-.  ||  |\    |   
+|  | |  |  |  | |  ||  | \   |  |  '--'  | |  |   |  |  |  | |  ||  | \   |   
+`--' `--'  `--' `--'`--'  `--'   `------'  `--'   `--'  `--' `--'`--'  `--'   
+What is your name?
+Olivia
+-------- ['']
+You have 6 tries left.
+Guess a letter, Olivia: a
+-a------ ['a']
+You have 6 tries left.
+Guess a letter, Olivia: b
+ba------ ['ab']
+You have 6 tries left.
+Guess a letter, Olivia: r
+bar----- ['abr']
+You have 6 tries left.
+Guess a letter, Olivia: i
+bari---- ['abri']
+You have 6 tries left.
+Guess a letter, Olivia: t
+barit--- ['abrit']
+You have 6 tries left.
+Guess a letter, Olivia: o
+barito-- ['abrito']
+You have 6 tries left.
+Guess a letter, Olivia: n
+bariton- ['abriton']
+You have 6 tries left.
+Guess a letter, Olivia: e
+baritone ['abritone']
+You have 6 tries left.
+You win, Olivia!
+Would like to play again? (y/n)y
+What is your name?
+Olivia
+------- ['']
+You have 6 tries left.
+Guess a letter, Olivia: a
+-a----a ['a']
+You have 6 tries left.
+Guess a letter, Olivia: e
+  (     )   
+  `-...-'   
+-a----a ['ae']
+You have 6 tries left.
+Guess a letter, Olivia: o
+   (   )    
+  (     )   
+  `-...-'   
+-a----a ['aeo']
+You have 5 tries left.
+Guess a letter, Olivia: u
+    ( )     
+   (   )    
+  (     )   
+  `-...-'   
+-a----a ['aeou']
+You have 4 tries left.
+Guess a letter, Olivia: i
+-a-i--a ['aeoui']
+You have 4 tries left.
+Guess a letter, Olivia: t
+     _      
+   _[_]_    
+    ( )     
+   (   )    
+  (     )   
+  `-...-'   
+-a-i--a ['aeouit']
+You have 3 tries left.
+Guess a letter, Olivia: s
+     _      
+   _[_]_    
+    ( )     
+   (   )--' 
+  (     )   
+  `-...-'   
+-a-i--a ['aeouits']
+You have 2 tries left.
+Guess a letter, Olivia: k
+     _      
+   _[_]_    
+    ( )     
+`--(   )--' 
+  (     )   
+  `-...-'   
+sorry Olivia, you ran out of tries.
+Would like to play again? (y/n)n
+███╗   ███╗ █████╗ ██████╗ ███████╗    ██████╗ ██╗   ██╗     ██████╗ ██╗     ██╗██╗   ██╗██╗ █████╗      ██╗ ██╗    ██╗ ██╗██████╗     ██╗ ██╗███████╗
+████╗ ████║██╔══██╗██╔══██╗██╔════╝    ██╔══██╗╚██╗ ██╔╝    ██╔═══██╗██║     ██║██║   ██║██║██╔══██╗    ███║███║   ██╔╝███║╚════██╗   ██╔╝███║╚════██║
+██╔████╔██║███████║██║  ██║█████╗      ██████╔╝ ╚████╔╝     ██║   ██║██║     ██║██║   ██║██║███████║    ╚██║╚██║  ██╔╝ ╚██║ █████╔╝  ██╔╝ ╚██║    ██╔╝
+██║╚██╔╝██║██╔══██║██║  ██║██╔══╝      ██╔══██╗  ╚██╔╝      ██║   ██║██║     ██║╚██╗ ██╔╝██║██╔══██║     ██║ ██║ ██╔╝   ██║ ╚═══██╗ ██╔╝   ██║   ██╔╝ 
+██║ ╚═╝ ██║██║  ██║██████╔╝███████╗    ██████╔╝   ██║       ╚██████╔╝███████╗██║ ╚████╔╝ ██║██║  ██║     ██║ ██║██╔╝    ██║██████╔╝██╔╝    ██║   ██║  
+╚═╝     ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝    ╚═════╝    ╚═╝        ╚═════╝ ╚══════╝╚═╝  ╚═══╝  ╚═╝╚═╝  ╚═╝     ╚═╝ ╚═╝╚═╝     ╚═╝╚═════╝ ╚═╝     ╚═╝   ╚═╝  
+>>> 
