@@ -33,9 +33,9 @@ def get_puzzle(name):
     file_names = os.listdir(path)
 
     for i, f in enumerate(file_names):
-        with open(path + "/" + file_names, 'r') as f:
+        with open(path + "/" + file_names[i], 'r') as f:
             category = f.read().splitlines()
-        print(str(i+1) + ") " + str(category))
+        print(str(i+1) + ") " + str(category[0]))
 
     print()
 
