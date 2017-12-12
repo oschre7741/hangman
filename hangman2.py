@@ -15,7 +15,6 @@ def show_start_screen():
         lines = f.read()
         print(lines)
 
-
 def show_end_screen():
     path = 'art'
 
@@ -93,18 +92,21 @@ def get_guess(guesses, name):
         
 def display_board(solved, guesses, strikesleft):
     print(solved, [guesses])
+    print()
     print("You have " + str(strikesleft) + " tries left.")
     print()
     
 def show_result(solved, puzzle, name, strikes):
         if solved == puzzle:
             print("You win, " + str(name) + "!")
+            print()
         elif strikes >= 6:
             print("sorry " + str(name) + ", you ran out of tries.")
+            print()
             
 def play_again():
         while True:
-            decision = input("Would like to play again? (y/n)")
+            decision = input("Would like to play again? (y/n) ")
 
             if decision.lower() == "y" or decision.lower() == "yes":
                 return True
@@ -128,7 +130,7 @@ def play():
         letter = get_guess(guesses, name)
 
         if (len(str(letter)) > 1) or (letter == '' or letter == ' ') or (letter not in "abcdefghijklmnopqrstuvwxyz") or (letter in guesses):
-            strikes != strikes + 1
+            strikes -= 1
             
         if str(letter) not in puzzle:
             strikes += 1
